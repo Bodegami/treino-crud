@@ -2,10 +2,11 @@ package br.com.renato.crud.livro;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "livros")
+@Table(name = "tb_livros")
 public class Livro {
 
     @Id
@@ -18,7 +19,9 @@ public class Livro {
 
     private String isbn;
 
-    private BigDecimal preco;
+    private BigDecimal preco = BigDecimal.ZERO;
+
+    private LocalDate cadastradoEm;
 
     @Deprecated
     public Livro() { }
@@ -28,6 +31,7 @@ public class Livro {
         this.autor = autor;
         this.isbn = isbn;
         this.preco = preco;
+        this.cadastradoEm = LocalDate.now();
     }
 
     public Long getId() {
@@ -48,6 +52,10 @@ public class Livro {
 
     public BigDecimal getPreco() {
         return preco;
+    }
+
+    public LocalDate getCadastradoEm() {
+        return cadastradoEm;
     }
 
     @Override
@@ -73,4 +81,6 @@ public class Livro {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
+
 }
