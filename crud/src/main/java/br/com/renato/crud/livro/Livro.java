@@ -58,6 +58,22 @@ public class Livro {
         return cadastradoEm;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
     @Override
     public String toString() {
         return "Livro{" +
